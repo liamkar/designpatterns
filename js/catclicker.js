@@ -17,13 +17,19 @@
 
   $(document).ready(function() {
     let catCounter = 0;
-
-    let cat1 = new Cat("Juma", 1);
-    let cat2 = new Cat("Dana", 2);
-
     let cats = new Map();
-    cats.set("1", cat1);
-    cats.set("2", cat2);
+
+    function createCats(catNames) {
+      for (let i = 0; i < catNames.length; i++) {
+          let id = i+1;
+          let cat = new Cat(catNames[i], id);
+          cats.set(""+id,cat);
+      }
+    }
+
+    let catNames = ["Juma", "Dana", "Rontti", "Pekka", "Blakkis"];
+    createCats(catNames);
+
 
     let catName = "catName";
     let catImage = "catImage";
